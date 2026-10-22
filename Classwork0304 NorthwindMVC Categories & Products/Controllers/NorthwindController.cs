@@ -25,13 +25,13 @@ namespace Classwork0304_NorthwindMVC_Categories___Products.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Products(int categoryId = 1, string categoryName = "Beverages")
+        public ActionResult Products(int categoryId = 1)
         {
             NorthwindDbManager manager = new NorthwindDbManager(Properties.Settings.Default.ConStr);
             ProductsViewModel viewModel = new ProductsViewModel
             {
                 Products = manager.GetProductsByCategory(categoryId),
-                CategoryName = categoryName
+                CategoryName = manager.GetCategoryName(categoryId)
             };
             return View(viewModel);
         }

@@ -67,5 +67,17 @@ namespace Classwork0304_NorthwindMVC_Categories___Products.Models
 
             return products;
         }
+
+        public string GetCategoryName(int categoryId)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = @"SELECT CategoryName FROM Categories
+                                    WHERE CategoryID = @CategoryID";
+            command.Parameters.AddWithValue("@CategoryID", categoryId);
+            connection.Open();            
+
+            return (string)command.ExecuteScalar();
+        }
     }
 }
