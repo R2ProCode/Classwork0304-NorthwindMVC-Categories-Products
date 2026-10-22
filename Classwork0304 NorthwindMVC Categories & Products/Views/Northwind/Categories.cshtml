@@ -29,7 +29,7 @@
                         @foreach (Category category in Model.Categories)
                         {
                             <tr>
-                                <td>@category.Name</td>
+                                <td>@category.Id</td>
                                 <td>
                                     <a href="/Northwind/Products?categoryId=@category.Id&categoryName=@category.Name" class="btn" style="background-color: #d63384; border-color: #d63384; color: #fff;">@category.Name</a>
                                 </td>
